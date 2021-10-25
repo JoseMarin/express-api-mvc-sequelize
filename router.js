@@ -1,11 +1,13 @@
 const router = require('express').Router();
 
 //Importamos Routes definidas en views
-const MovieRouter = require('./views/MovieRouter');
-const CategoryRouter = require('./views/CategoryRouter');
+const caRouter = require('./views/caRouter');
+const provinciaRouter = require('./views/provinciaRouter');
+const localidadRouter = require('./views/localidadRouter');
 
 //Rutas
-router.use('/movies', MovieRouter);
-router.use('/categories', CategoryRouter);
+router.use('/ca', caRouter);
+router.use('/provincia', provinciaRouter);
+router.use('/localidad', localidadRouter);
 
 module.exports = router;
