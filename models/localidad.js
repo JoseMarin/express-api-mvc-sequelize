@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      localidad.belongsTo(models.ca, {
-        foreignKey: 'caId'
+      localidad.belongsTo(models.provincia, {
+        foreignKey: 'provinciaId'
       });
     }
   };
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     cp: DataTypes.INTEGER,
     capital_pro: DataTypes.BOOLEAN,
     capital_ca: DataTypes.BOOLEAN,
-    caId: DataTypes.INTEGER
+    provinciaId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'localidad',
