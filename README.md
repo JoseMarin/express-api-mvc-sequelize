@@ -2,6 +2,10 @@
 
 ## COMANDOS BÁSICOS
 <br>
+
+![image](https://user-images.githubusercontent.com/16636086/138618084-e6776834-ff59-4763-9489-98afb98b9283.png)
+
+
 ```
 npm init
 npm install
