@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 
 //Importo modelo de datos
-const CategoryController = require('../controllers/CategoryController');
+const caController = require('../controllers/caController');
 
 // End-points CRUD movies
-router.get('/', CategoryController.getAll);
-router.get('/:id', CategoryController.getById);
-router.get('/type/:type', CategoryController.getByType);
-router.post('/', CategoryController.create);
-router.put('/:id', CategoryController.update);
-router.delete('/', CategoryController.deleteAll);
-router.delete('/:id', CategoryController.delete);
+router.get('/', caController.getAll);
+router.get('/:id', caController.getById);
+router.get('/type/:type', caController.getByType);
+router.post('/', caController.create);
+router.put('/:id', caController.update);
+router.delete('/', caController.deleteAll);
+router.delete('/:id', caController.delete);
 
 module.exports = router;
