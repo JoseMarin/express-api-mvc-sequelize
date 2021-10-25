@@ -115,7 +115,7 @@ localidadController.update = (req, res) => {
 //-------------------------------------------------------------------------------------
 //GET localidad by name from database 
 //FindByname
-localidadController.getByNombre = (req, res) => {
+localidadController.getByName = (req, res) => {
   localidads.findAll({ where: { nombre: req.params.nombre } })
     .then(data => {
       res.send(data);

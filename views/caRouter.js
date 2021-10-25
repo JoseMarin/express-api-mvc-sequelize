@@ -7,7 +7,7 @@ const caController = require('../controllers/caController');
 // End-points CRUD movies
 router.get('/', caController.getAll);
 router.get('/:id', caController.getById);
-router.get('/type/:type', caController.getByType);
+router.get('/nombre/:nombre', caController.getByName);
 router.post('/', caController.create);
 router.put('/:id', caController.update);
 router.delete('/', caController.deleteAll);

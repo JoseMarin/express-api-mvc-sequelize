@@ -7,7 +7,7 @@ const localidadController = require('../controllers/localidadController');
 // End-points CRUD localidads
 router.get('/', localidadController.getAll);
 router.get('/:id', localidadController.getById);
-router.get('/name/:title', localidadController.getByNombre);
+router.get('/nombre/:nombre', localidadController.getByName);
 router.post('/', localidadController.create);
 router.put('/:id', localidadController.update);
 router.delete('/', localidadController.deleteAll);

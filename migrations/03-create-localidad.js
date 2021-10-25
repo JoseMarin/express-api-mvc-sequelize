@@ -23,15 +23,6 @@ module.exports = {
       capital_ca: {
         type: Sequelize.BOOLEAN
       },
-      provinciaId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'provincia',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -39,7 +30,16 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      provinciaId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'provincias',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

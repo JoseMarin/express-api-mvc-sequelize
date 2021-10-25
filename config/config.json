@@ -1,10 +1,10 @@
 {
   "development": {
     "username": "remote",
-    "password": "lacasitos1;",
+    "password": "f3d0r421.",
     "database": "geografiaDB",
-    "host": "172.16.10.215",
-    "port": "3306",
+    "host": "192.168.0.19",
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
