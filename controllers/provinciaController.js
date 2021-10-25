@@ -1,26 +1,26 @@
 //Importo modelo de datos
 const db = require("../models");
-const category = db.category;
+const provincia = db.provincia;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
 
-const CategoryController = {}; //Create the object controller
+const ProvinciaController = {}; //Create the object controller
 
 
 //CRUD end-points Functions
 //-------------------------------------------------------------------------------------
 //GET all categories from database
-CategoryController.getAll = (req, res) => {
-    const type = req.query.type;
-    var condition = type ? { type: { [Op.like]: `%${type}%` } } : null;
+ProvinciaController.getAll = (req, res) => {
+    const nombre = req.query.nombre;
+    var condition = nombre ? { nombre: { [Op.like]: `%${nombre}%` } } : null;
   
-    category.findAll({ where: condition })
+    provincia.findAll({ where: condition })
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving categories."
+            err.message || "Some error occurred while retrieving provincias."
         });
       });
   };
@@ -28,80 +28,83 @@ CategoryController.getAll = (req, res) => {
 
 //-------------------------------------------------------------------------------------
 //GET categories by Id from database
-CategoryController.getById = (req, res) => {
+ProvinciaController.getById = (req, res) => {
     const id = req.params.id;
   
-    category.findByPk(id)
+    provincia.findByPk(id)
       .then(data => {
         if (data) {
           res.send(data);
         } else {
           res.status(404).send({
-            message: `Cannot find Category with id=${id}.`
+            message: `Cannot find provincia with id=${id}.`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving categories with id=" + id
+          message: "Error retrieving provincias with id=" + id
         });
       });
   };
 
 
 //-------------------------------------------------------------------------------------
-//CREATE a new category in database
-CategoryController.create = (req, res) => {
+//CREATE a new provincia in database
+ProvinciaController.create = (req, res) => {
     // Validate request
-    if (!req.body.type) {
+    if (!req.body.nombre) {
       res.status(400).send({
         message: "Content can not be empty!"
       });
       return;
     }
   
-    // Create a Category
-    const newCategory = {
-      type: req.body.type,
-      age: req.body.age
+    // Create a provincia
+    const newprovincia = {
+      cp: req.body.cp,
+      nombre: req.body.nombre,
+      poblacion: req.body.poblacion,
+      superficie : req.body.superficie,
+      fk_CA : req.body.fk_CA
     };
   
-    // Save Category in the database
-    category.create(newCategory)
+    // Save provincia in the database
+    provincia.create(newprovincia)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the newCategory."
+            err.message || "Some error occurred while creating the newprovincia."
         });
       });
   };
 
 
 //-------------------------------------------------------------------------------------
-//UPDATE a category from database
-CategoryController.update = (req, res) => {
+//UPDATE a provincia from database
+ProvinciaController.update = (req, res) => {
     const id = req.params.id;
   
-    category.update(req.body, {
+    provincia.update(req.body, {
       where: { id: id }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Category was updated successfully."
+            message: "provincia was updated successfully."
           });
         } else {
           res.send({
-            message: `Cannot update Category with id=${id}. Maybe Movie was not found or req.body is empty!`
+            message: `Cannot update provincia with id=${id}. Maybe CA was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating Category with id=" + id
+          message: "Error updating provincia with id=" + id
         });
       });
   };
@@ -110,42 +113,42 @@ CategoryController.update = (req, res) => {
 //-------------------------------------------------------------------------------------
 //GET categories by Type from database  
 //FindByType
-CategoryController.getByType = (req, res) => {
-    category.findAll({ where: { type: req.params.type } })
+ProvinciaController.getByName = (req, res) => {
+    provincia.findAll({ where: { nombre: req.params.nombre } })
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving categories."
+            err.message || "Some error occurred while retrieving provincias."
         });
       });
   };
 
 
 //-------------------------------------------------------------------------------------
-//DELETE a category by Id from database
-CategoryController.delete = (req, res) => {
+//DELETE a provincia by Id from database
+ProvinciaController.delete = (req, res) => {
     const id = req.params.id;
   
-    category.destroy({
+    provincia.destroy({
       where: { id: id }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Category was deleted successfully!"
+            message: "provincia was deleted successfully!"
           });
         } else {
           res.send({
-            message: `Cannot delete Category with id=${id}. Maybe Movie was not found!`
+            message: `Cannot delete provincia with id=${id}. Maybe Movie was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete Category with id=" + id
+          message: "Could not delete provincia with id=" + id
         });
       });
   };
@@ -154,8 +157,8 @@ CategoryController.delete = (req, res) => {
 //-------------------------------------------------------------------------------------
 //DELETE all categories from database
 //delete all categories   
-CategoryController.deleteAll = (req, res) => {
-    category.destroy({
+ProvinciaController.deleteAll = (req, res) => {
+    provincia.destroy({
       where: {},
       truncate: false
     })
@@ -170,4 +173,4 @@ CategoryController.deleteAll = (req, res) => {
       });
   };
 
-module.exports = CategoryController;
+module.exports = ProvinciaController;
