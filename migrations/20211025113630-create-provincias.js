@@ -27,7 +27,16 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      caId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cas',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

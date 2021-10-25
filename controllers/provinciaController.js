@@ -66,7 +66,7 @@ ProvinciaController.create = (req, res) => {
       nombre: req.body.nombre,
       poblacion: req.body.poblacion,
       superficie : req.body.superficie,
-      fk_CA : req.body.fk_CA
+      caId : req.body.caId
     };
   
     // Save provincia in the database
