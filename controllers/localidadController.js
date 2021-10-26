@@ -3,7 +3,7 @@ const db = require("../models");
 const localidads = db.localidad;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
 
-var caModel = require('../models').ca;  //Add for dependency response
+var provinciaModel = require('../models').provincia;  //Add for dependency response
 
 const localidadController = {}; //Create the object controller
 
@@ -14,7 +14,7 @@ const localidadController = {}; //Create the object controller
 //GET all localidads from database
 localidadController.getAll = (req, res) => {
 
-  localidads.findAll({ include: [{ model: caModel }] })
+  localidads.findAll({ include: [{ model: provinciaModel }] })
     .then(data => {
       res.send(data);
     })
@@ -32,7 +32,7 @@ localidadController.getAll = (req, res) => {
 localidadController.getById = (req, res) => {
   const id = req.params.id;
 
-  localidads.findByPk(id, { include: [{ model: caModel }] })
+  localidads.findByPk(id, { include: [{ model: provinciaModel }] })
     .then(data => {
       if (data) {
         res.send(data);
