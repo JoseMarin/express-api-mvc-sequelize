@@ -26,7 +26,10 @@ module.exports = (sequelize, DataTypes) => {
     caId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'provincia',
-  });
+    modelName: 'provincia'
+  }, {
+  tableName: 'provincias' 
+}); 
   return provincia;
 };
+

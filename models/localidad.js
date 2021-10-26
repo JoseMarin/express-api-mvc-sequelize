@@ -24,7 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     provinciaId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'localidad',
+    modelName: 'localidad'
+  },{
+    tableName: 'localidads' 
   });
   return localidad;
 };

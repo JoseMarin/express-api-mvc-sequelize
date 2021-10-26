@@ -6,8 +6,8 @@ const provinciaRouter = require('./views/provinciaRouter');
 const localidadRouter = require('./views/localidadRouter');
 
 //Rutas
-router.use('/cas', caRouter);
-router.use('/provincias', provinciaRouter);
-router.use('/localidads', localidadRouter);
+router.use('/ca', caRouter);
+router.use('/provincia', provinciaRouter);
+router.use('/localidad', localidadRouter);
 
 module.exports = router;
