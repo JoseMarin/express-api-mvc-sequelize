@@ -24,5 +24,13 @@
     "sequelize": "^6.8.0",
     "sequelize-cli": "^6.2.0",
     "winston": "^3.3.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamara96mc/express-api-mvc-sequelize.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tamara96mc/express-api-mvc-sequelize/issues"
+  },
+  "homepage": "https://github.com/tamara96mc/express-api-mvc-sequelize#readme"
 }
