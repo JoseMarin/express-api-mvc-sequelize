@@ -34,7 +34,7 @@ module.exports = {
       provinciaId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'provincias',
+          model: 'provincia',
           key: 'id'
         },
         onUpdate: 'CASCADE',

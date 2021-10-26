@@ -3,6 +3,8 @@ const db = require("../models");
 const provincias = db.provincia;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
 
+var caModel = require('../models').ca;  //Add for dependency response
+
 const provinciaController = {}; //Create the object controller
 
 
@@ -10,10 +12,8 @@ const provinciaController = {}; //Create the object controller
 //-------------------------------------------------------------------------------------
 //GET all provincias from database
 provinciaController.getAll = (req, res) => {
-  const nombre = req.query.nombre;
-  var condition = nombre ? { nombre: { [Op.like]: `%${nombre}%` } } : null;
-
-  provincias.findAll({ where: condition })
+  
+  provincias.findAll({ include: [{ model: caModel }] })
     .then(data => {
       res.send(data);
     })
@@ -31,7 +31,7 @@ provinciaController.getAll = (req, res) => {
 provinciaController.getById = (req, res) => {
   const id = req.params.id;
 
-  provincias.findByPk(id)
+  provincias.findByPk(id,{ include: [{ model: caModel }] })
     .then(data => {
       if (data) {
         res.send(data);

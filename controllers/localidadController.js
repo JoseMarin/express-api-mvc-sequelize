@@ -68,7 +68,7 @@ localidadController.create = (req, res) => {
     poblacion: req.body.poblacion,
     capital_pro: req.body.capital_pro,
     capital_ca: req.body.capital_ca,
-    proviciaId: req.body.provinciaId
+    provinciaId: req.body.provinciaId
   };
 
   // Save localidads in the database

@@ -32,4 +32,3 @@ module.exports = (sequelize, DataTypes) => {
 }); 
   return provincia;
 };
-
