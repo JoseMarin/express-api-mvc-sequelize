@@ -1,13 +1,18 @@
 const router = require('express').Router();
 
+// Middlewares
+const auth = require('./middlewares/auth');
+
 //Importamos Routes definidas en views
-const caRouter = require('./views/caRouter');
-const provinciaRouter = require('./views/provinciaRouter');
-const localidadRouter = require('./views/localidadRouter');
+const CityRouter = require('./views/CityRouter');
+const ProvinceRouter = require('./views/ProvinceRouter');
+const CaRouter = require('./views/CaRouter');
+const UserRouter = require('./views/UserRouter');
 
 //Rutas
-router.use('/ca', caRouter);
-router.use('/provincia', provinciaRouter);
-router.use('/localidad', localidadRouter);
+router.use('/api', UserRouter); //Login and register routes
+router.use('/cities', CityRouter); //add auth
+router.use('/provinces', ProvinceRouter); //add auth
+router.use('/cas', CaRouter);
 
 module.exports = router;

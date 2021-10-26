@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('localidads', {
+    await queryInterface.createTable('provinces', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,17 +11,17 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
-      poblacion: {
-        type: Sequelize.STRING
-      },
       cp: {
         type: Sequelize.INTEGER
       },
-      capital_pro: {
-        type: Sequelize.BOOLEAN
+      poblacion: {
+        type: Sequelize.INTEGER
       },
-      capital_ca: {
-        type: Sequelize.BOOLEAN
+      superficie: {
+        type: Sequelize.INTEGER
+      },
+      caId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -30,19 +30,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      },
-      provinciaId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'provincia',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('localidads');
+    await queryInterface.dropTable('provinces');
   }
 };

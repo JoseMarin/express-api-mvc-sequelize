@@ -2,12 +2,13 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('localidads', [{
+
+    await queryInterface.bulkInsert('cities', [{
       nombre: "Thị Trấn Cẩm Thủy",
       poblacion: 1706,
       capital_pro: false,
       capital_ca: false,
-      provinciaId: 5,
+      provinceId: 5,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -15,7 +16,7 @@ module.exports = {
       poblacion: 6122,
       capital_pro: true,
       capital_ca: true,
-      provinciaId: 10,
+      provinceId: 10,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -23,7 +24,7 @@ module.exports = {
       poblacion: 9580,
       capital_pro: true,
       capital_ca: false,
-      provinciaId: 8,
+      provinceId: 8,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -31,7 +32,7 @@ module.exports = {
       poblacion: 4315,
       capital_pro: false,
       capital_ca: false,
-      provinciaId: 1,
+      provinceId: 1,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -40,7 +41,7 @@ module.exports = {
       cp: 34143,
       capital_pro: true,
       capital_ca: false,
-      provinciaId: 7,
+      provinceId: 7,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -48,7 +49,7 @@ module.exports = {
       poblacion: 1998,
       capital_pro: true,
       capital_ca: true,
-      provinciaId: 9,
+      provinceId: 9,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -57,7 +58,7 @@ module.exports = {
       cp: 641960,
       capital_pro: true,
       capital_ca: true,
-      provinciaId: 2,
+      provinceId: 2,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -66,7 +67,7 @@ module.exports = {
       cp: 9402,
       capital_pro: false,
       capital_ca: true,
-      provinciaId: 3,
+      provinceId: 3,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -75,7 +76,7 @@ module.exports = {
       cp: 4622,
       capital_pro: true,
       capital_ca: false,
-      provinciaId: 4,
+      provinceId: 4,
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
@@ -83,16 +84,15 @@ module.exports = {
       poblacion: 2819,
       capital_pro: true,
       capital_ca: true,
-      provinciaId: 6,
+      provinceId: 6,
       createdAt: new Date(),
       updatedAt: new Date()
     }], {});
-
   },
 
   down: async (queryInterface, Sequelize) => {
 
-    await queryInterface.bulkDelete('localidads', null, {});
+    await queryInterface.bulkDelete('cities', null, {});
 
   }
 };
